@@ -15,16 +15,16 @@
     }
 
     $result=mysqli_query($db, 
-    "SELECT * FROM pesan WHERE id='$id'");
-    $row=mysqli_fetch_array($result);
-
-    $gambar=$row['nota'];
-    $target = "nota/$gambar";
-    if (file_exists($target)){
-        unlink($target);
-    }
+        "SELECT * FROM pesan WHERE id='$id'");
+        $row=mysqli_fetch_array($result);
 
     if(isset($_POST['btn'])){
+        $gambar=$row['nota'];
+        $target = "nota/$gambar";
+        if (file_exists($target)){
+            unlink($target);
+        }
+
         $namapembeli=$_POST['namapemesan'];
         $namaproduk=$_POST['nama'];
         $jenis=$_POST['jenis'];
